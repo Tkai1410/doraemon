@@ -1,36 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dora Fanclub Admin</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    display:flex;
+    height:100vh;
+    background:#f5f7fb;
+}
+
+.sidebar{
+    width:250px;
+    background:#0099ff;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+}
+
+.sidebar button{
+    width:100%;
+    margin-bottom:10px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:white;
+    color:#0099ff;
+    font-weight:bold;
+}
+
+.content{
+    flex:1;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+table th{
+    background:#0099ff;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
 <div class="sidebar">
-    <h3>DORA FANCLUB</h3>
 
-    <button onclick="showPage('home')">🏠 Trang chủ</button>
+    <h2>🐱 Dora Fanclub</h2>
 
-    <button onclick="showPage('members')">👥 Thành viên</button>
+    <button onclick="showPage('home')">
+        🏠 Trang chủ
+    </button>
 
-    <button onclick="showPage('posts')">📢 Bài đăng</button>
+    <button onclick="showPage('members')">
+        👥 Thành viên
+    </button>
 
-    <button onclick="showPage('events')">🎁 Mini Game</button>
+    <button onclick="showPage('posts')">
+        📢 Bài đăng
+    </button>
+
+    <button onclick="showPage('game')">
+        🎁 Mini Game
+    </button>
+
 </div>
 
 <div class="content">
 
     <div id="home">
-        <h2>Trang chủ</h2>
-        <p>Chào mừng đến hệ thống quản lý.</p>
+
+        <div class="card">
+            <h1>Trang chủ</h1>
+            <br>
+            <p>Chào mừng đến hệ thống quản lý Dora Fanclub Việt Nam.</p>
+        </div>
+
     </div>
 
     <div id="members" style="display:none">
-        <h2>Danh sách thành viên</h2>
 
-        <table border="1">
-            <tr>
-                <th>Họ tên</th>
-                <th>Chức vụ</th>
-            </tr>
+        <div class="card">
+            <h1>Danh sách thành viên</h1>
 
-            <tr>
-                <td>Nguyễn Văn A</td>
-                <td>Admin</td>
-            </tr>
-        </table>
+            <br>
+
+            <table>
+                <tr>
+                    <th>Họ tên</th>
+                    <th>Chức vụ</th>
+                </tr>
+
+                <tr>
+                    <td>Nguyễn Thị Thảo Nhi</td>
+                    <td>BQT</td>
+                </tr>
+
+                <tr>
+                    <td>Cao Ngọc Duyên</td>
+                    <td>Thành viên</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="posts" style="display:none">
+
+        <div class="card">
+            <h1>Quản lý bài đăng</h1>
+            <p>Chưa có dữ liệu.</p>
+        </div>
+
+    </div>
+
+    <div id="game" style="display:none">
+
+        <div class="card">
+            <h1>Mini Game</h1>
+            <p>Danh sách mini game sẽ hiển thị tại đây.</p>
+        </div>
+
     </div>
 
 </div>
+
+<script>
+
+function showPage(id){
+
+    document
+    .querySelectorAll(".content > div")
+    .forEach(page => {
+        page.style.display = "none";
+    });
+
+    document
+    .getElementById(id)
+    .style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
