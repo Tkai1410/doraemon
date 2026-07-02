@@ -1,79 +1,36 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
+<div class="sidebar">
+    <h3>DORA FANCLUB</h3>
 
-<style>
-body{
-    font-family:Segoe UI,Arial,sans-serif;
-    margin:0;
-    background:#f5f5f5;
-}
+    <button onclick="showPage('home')">🏠 Trang chủ</button>
 
-.header{
-    background:#0099ff;
-    color:white;
-    padding:20px;
-}
+    <button onclick="showPage('members')">👥 Thành viên</button>
 
-.container{
-    padding:30px;
-}
+    <button onclick="showPage('posts')">📢 Bài đăng</button>
 
-.card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:15px;
-}
-
-button{
-    padding:10px 15px;
-    border:none;
-    border-radius:8px;
-    background:red;
-    color:white;
-    cursor:pointer;
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">
-    <h2>Dora Fanclub Việt Nam</h2>
+    <button onclick="showPage('events')">🎁 Mini Game</button>
 </div>
 
-<div class="container">
+<div class="content">
 
-    <div class="card">
-        <h3>Xin chào Admin 👋</h3>
-        <p>Đăng nhập thành công.</p>
+    <div id="home">
+        <h2>Trang chủ</h2>
+        <p>Chào mừng đến hệ thống quản lý.</p>
     </div>
 
-    <div class="card">
-        <h3>Quản lý hệ thống</h3>
-        <p>Thêm các chức năng của bạn tại đây.</p>
-    </div>
+    <div id="members" style="display:none">
+        <h2>Danh sách thành viên</h2>
 
-    <button onclick="logout()">Đăng xuất</button>
+        <table border="1">
+            <tr>
+                <th>Họ tên</th>
+                <th>Chức vụ</th>
+            </tr>
+
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>Admin</td>
+            </tr>
+        </table>
+    </div>
 
 </div>
-
-<script>
-
-if(sessionStorage.getItem("loggedIn") !== "true"){
-    window.location.href = "index.html";
-}
-
-function logout(){
-    sessionStorage.removeItem("loggedIn");
-    window.location.href = "index.html";
-}
-
-</script>
-
-</body>
-</html>
